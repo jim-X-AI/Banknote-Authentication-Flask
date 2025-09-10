@@ -122,6 +122,11 @@ def api_predict():
     return jsonify(result)
 
 
+@app.route('/health')
+def health():
+    return "OK", 200
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     # For local dev only: flask run or python app.py
