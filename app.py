@@ -3,8 +3,8 @@ import os
 import csv
 from datetime import datetime
 from flask import Flask, request, render_template, jsonify
-from tensorflow.keras.models import load_model
 import numpy as np
+from tensorflow import keras
 
 
 
@@ -15,9 +15,9 @@ DB_PATH = "predictions_log.csv"
 
 app = Flask(__name__)
 
-# load model
-MODEL_PATH = os.getenv("MODEL_PATH", "model.h5")
-model = load_model(MODEL_PATH)
+
+MODEL_PATH = os.getenv("MODEL_PATH", "model.keras")
+model = keras.models.load_model(MODEL_PATH)
 
 def predict_from_features(features):
     # features: list-like of length 4 (VWTI, SWTI, CWTI, EI)
