@@ -1,6 +1,6 @@
-Flask==2.3.2
+Flask==3.1.0
 gunicorn==20.1.0
-numpy==1.26.0
+numpy==2.3.3
 PyGithub==1.55
 tensorflow == 2.20.0
 
