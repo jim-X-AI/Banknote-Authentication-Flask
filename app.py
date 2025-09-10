@@ -23,7 +23,7 @@ def predict_from_features(features):
     # features: list-like of length 4 (VWTI, SWTI, CWTI, EI)
     arr = np.array(features, dtype=float).reshape(1, -1)
     prob = float(model.predict(arr)[0][0])
-    label = 1 if prob >= 0.5 else 0
+    label = 'Real' if prob >= 0.5 else 'Fake'
     return {"probability": prob, "label": label}
 
 # simple local logger (append to CSV)
