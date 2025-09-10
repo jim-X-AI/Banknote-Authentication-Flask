@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Banknote Classifier</title>
+  </head>
+  <body>
+    <h1>Banknote Classifier</h1>
+    {% if error %}
+      <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <form method="post" action="/predict">
+      <label>Variance: <input name="variance" required></label><br>
+      <label>Skewness: <input name="skewness" required></label><br>
+      <label>Kurtosis: <input name="kurtosis" required></label><br>
+      <label>Entropy: <input name="entropy" required></label><br>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+      <h2>Result</h2>
+      <pre>{{ result }}</pre>
+      <p>Features: {{ features }}</p>
+    {% endif %}
+  </body>
+</html>
